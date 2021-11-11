@@ -59,12 +59,12 @@ Elasticsearch和关系型数据库的比较：
 
 # 环境安装
 
-实例环境：
+## 环境：
 
 * CentOS Linux release 7.9.2009 (Core)
 * java 1.8.0_291
 
-下载地址
+## 下载地址
 
 [Download Elasticsearch](https://www.elastic.co/cn/downloads/elasticsearch)
 
@@ -80,12 +80,107 @@ Elasticsearch和关系型数据库的比较：
 
 这里我们下载最新的rpm版本：https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.15.2-x86_64.rpm
 
-安装
+## 安装
 
 ```shell
-#下载
+#1.下载
 curl -o elasticsearch-7.15.2-x86_64.rpm https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.15.2-x86_64.rpm
+#或 wget -O elasticsearch-7.15.2-x86_64.rpm https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.15.2-x86_64.rpm
 
-
+#2.安装
+yum install elasticsearch-7.15.2-x86_64.rpm
+#默认安装到了/etc/elasticsearch     /usr/share/elasticsearch
+	
+#3.一系列设置
+#因为elasticsearch自动创建的用户elasticsearch是默认无法登录的，所以这里先把用户elasticsearch的shell更改为/bin/bash
+usermod elasticsearch -s /bin/bash
+usermod -a -G root elasticsearch
+#授予这个目录权限，不然会报错：
+chmod -R 777 /var/log/elasticsearch
+#然后用elasticsearch用户登录：
+su elasticsearch
+/usr/share/elasticsearch/bin/elasticsearch  #启动
 ```
+
+#启动之后访问localhost:9200来测试：
+
+```shell
+curl localhost:9200
+```
+
+正常情况下会返回类似结果：
+
+{
+  "name" : "bogon",
+  "cluster_name" : "elasticsearch",
+  "cluster_uuid" : "PCT7fmNcTm2Zkkd0AkWhcg",
+  "version" : {
+    "number" : "7.15.2",
+    "build_flavor" : "default",
+    "build_type" : "rpm",
+    "build_hash" : "93d5a7f6192e8a1a12e154a2b81bf6fa7309da0c",
+    "build_date" : "2021-11-04T14:04:42.515624022Z",
+    "build_snapshot" : false,
+    "lucene_version" : "8.9.0",
+    "minimum_wire_compatibility_version" : "6.8.0",
+    "minimum_index_compatibility_version" : "6.0.0-beta1"
+  },
+  "tagline" : "You Know, for Search"
+}
+
+
+
+# 入门
+
+## PostMan与Elasticsearch
+
+
+
+
+
+
+
+
+
+## 创建索引
+
+
+
+
+
+
+
+## 更新索引
+
+
+
+
+
+
+
+## 获取索引
+
+
+
+
+
+
+
+## 删除文档
+
+
+
+
+
+
+
+
+
+## 搜索
+
+
+
+
+
+。。。
 
