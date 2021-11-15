@@ -73,13 +73,13 @@ long写的demo都搁这了
   * Nacos 对比 Eureka
     * eureka闭源了，所以不作考虑
     * nacos是目前比较看好的后起之秀，并且是ap模型非常适合注册中心支持多机房部署；同时无缝对接与支持dubbo、spring cloud和kubernates云原生体系
- 
+
 
 ## 配置中心
   * Nacos 对比 Apollo
     * Nacos缺点：目前的版本在功能上还是比apollo要少点，主要体现在发布审计、灰度发布等功能。
     * Nacos优点：支持yml格式，并且和注册中心是同一套中间件，方便管理运维
- 
+
 
 ## 服务降级、熔断和限流
 * Sentinel 对比 Hystrix
@@ -112,3 +112,4 @@ long写的demo都搁这了
   * Redis
 
 ![image](https://user-images.githubusercontent.com/44282487/140855734-886292ae-1f1b-4c4b-a3ba-c6631fa16109.png)
+
